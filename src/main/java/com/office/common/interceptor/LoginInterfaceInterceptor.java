@@ -13,11 +13,11 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.office.common.client.ResponseHandler;
 import com.office.common.constants.ResponseCode;
 import com.office.common.dto.UserDTO;
 import com.office.common.session.SessionAttributeNames;
 import com.office.common.util.PropertiesUtil;
-import com.office.common.util.ResponseUtil;
 /**
  * 登录认证的拦截器 
  * @author Neo
@@ -54,7 +54,7 @@ public class LoginInterfaceInterceptor extends HandlerInterceptorAdapter impleme
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("returnFlag", ResponseCode.SESSION_TIME_OUT);
 				map.put("returnMsg", "未登录或者登录超时");
-				ResponseUtil.writeContent(map, response);
+				ResponseHandler.writeContent(map, response);
 				return false;
 			}
 		}

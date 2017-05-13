@@ -1,4 +1,4 @@
-package com.office.common.util;
+package com.office.common.client;
 
 import java.io.PrintWriter;
 
@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 
 import com.alibaba.fastjson.JSONObject;
 
-public class ResponseUtil {
+public class ResponseHandler {
 
-	private static Logger logger = Logger.getLogger(ResponseUtil.class);
+	private static Logger logger = Logger.getLogger(ResponseHandler.class);
 	
 	public static void writeContent(Object object,HttpServletResponse response){
 		//将实体对象转换为JSON String转换  

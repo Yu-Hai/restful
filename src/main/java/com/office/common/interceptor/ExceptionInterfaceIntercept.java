@@ -10,9 +10,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.office.common.client.ResponseHandler;
 import com.office.common.constants.BusinessConstants;
 import com.office.common.constants.ResponseCode;
-import com.office.common.util.ResponseUtil;
 
 public class ExceptionInterfaceIntercept extends HandlerInterceptorAdapter implements InitializingBean {
 	private static Logger logger = Logger.getLogger(ExceptionInterfaceIntercept.class);
@@ -25,7 +25,7 @@ public class ExceptionInterfaceIntercept extends HandlerInterceptorAdapter imple
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("returnFlag", ResponseCode.RESPONSE_ERROR);
 			map.put("returnMsg", BusinessConstants.RESPONSE_ERROR_MSG);
-			ResponseUtil.writeContent(map, response);
+			ResponseHandler.writeContent(map, response);
 		}
 		super.afterCompletion(request, response, handler, ex);
 	}
